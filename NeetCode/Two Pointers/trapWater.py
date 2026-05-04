@@ -23,6 +23,8 @@ class Solution:
 
 #Other solutions
 #Prefix and Suffix arrays
+#fill leftMax and rightMax arrays with the maximum height to the left and to the right of each position, then calculate the water trapped at each position as min(leftMax[i], rightMax[i]) - height[i]
+
 from typing import List
 class Solution:
     def trap(self, height: List[int]) -> int:
@@ -57,13 +59,13 @@ class Solution:
         res = 0
 
         for i in range(len(height)):
-            while stack and height[i] >= height[stack[-1]]:
-                mid = height[stack.pop()]
+            while stack and height[i] >= height[stack[-1]]: #while the current height is greater than the height of the top of the stack
+                mid = height[stack.pop()] #the height of the middle bar
                 if stack:
-                    right = height[i]
-                    left = height[stack[-1]]
-                    h = min(right, left) - mid
-                    w = i - stack[-1] - 1
+                    right = height[i] #the height of the right bar
+                    left = height[stack[-1]] #the height of the left bar
+                    h = min(right, left) - mid #the height of the trapped water
+                    w = i - stack[-1] - 1 #the width of the trapped water
                     res += h * w
             stack.append(i)
         return res
