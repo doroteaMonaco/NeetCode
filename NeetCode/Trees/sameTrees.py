@@ -22,6 +22,8 @@ class Solution:
             return left and right
 
         return False
+    
+    
 # Time complexity: O(n) where n is the number of nodes in the smaller tree
 # Space complexity: O(n) in worst case (skewed tree), O(log n) in best case (balanced tree)
 
