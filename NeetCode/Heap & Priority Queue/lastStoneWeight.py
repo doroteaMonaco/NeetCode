@@ -51,3 +51,6 @@ class Solution:
             bucket[first - second] += 1
             first = max(first - second, second)
         return first
+    
+#Time Complexity: O(n + m) where n is the number of stones and m is the maximum weight of the stones. The first part of the algorithm involves iterating through the list of stones to populate the bucket array, which takes O(n) time. The second part involves iterating through the bucket array to find the heaviest stones and perform the smashing operations, which takes O(m) time in the worst case when all stones have unique weights.
+#Space Complexity: O(m) for the bucket array, where m is the maximum weight of the stones. The bucket array is used to count the number of stones for each weight, and its size is determined by the maximum weight of the stones in the input list.
