@@ -5,7 +5,7 @@ from typing import List
 
 
 class Solution:
-
+    #Used for tanh activation, not ReLU
     def xavier_init(self, fan_in: int, fan_out: int) -> List[List[float]]:
         # Return a (fan_out x fan_in) weight matrix using Xavier/Glorot normal initialization
         # Use torch.manual_seed(0) for reproducibility
@@ -15,7 +15,7 @@ class Solution:
         weights = torch.randn(fan_out, fan_in) * std
         return torch.round(weights, decimals=4).tolist()
 
-
+    #Used for ReLU activation, not tanh
     def kaiming_init(self, fan_in: int, fan_out: int) -> List[List[float]]:
         # Return a (fan_out x fan_in) weight matrix using Kaiming/He normal initialization (for ReLU)
         # Use torch.manual_seed(0) for reproducibility
