@@ -1,3 +1,4 @@
+from collections import deque
 from typing import List
 
 #It is disconnected if the number of edges is not equal to n - 1, because a tree with n nodes must have n - 1 edges
